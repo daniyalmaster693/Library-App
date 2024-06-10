@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+:root {
+  --light-gray: #e0e0e0;
+  --dark-gray: #333333;
+  --text-gray: #4f4f4f;
+  --red: #e66063;
+  --white: #f2f2f2;
+  --border-radius-value: 7px;
+  --box-shadow-value: 0 2px 20px rgba(0, 0, 0, 0.2);
+  --ease-in-out: all 0.3s ease-in-out;
+  --scale-in-out: scale(1.05);
+}
+
+body {
+  background-color: var(--light-gray);
+  font-family: "Roboto";
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-tracking {
+  color: var(--dark-gray);
+  font-family: "Source Sans 3";
+  font-size: 50px;
+}
+
+.add-books,
+.submit-book,
+.book-reading-status,
+.remove-book {
+  color: var(--white);
+  background-color: var(--dark-gray);
+  height: 45px;
+  font-family: "Roboto";
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  border: none;
+  border-radius: var(--border-radius-value);
+  cursor: pointer;
+  box-shadow: var(--box-shadow-value);
+  transition: var(--ease-in-out);
+}
+
+.add-books {
+  width: 150px;
+}
+
+.submit-book {
+  width: 100%;
+}
+
+.book-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.book-reading-status,
+.remove-book {
+  width: 265px;
+}
+
+.add-books:hover,
+.submit-book:hover,
+.book-reading-status:hover,
+.remove-book:hover {
+  transform: var(--scale-in-out);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--white);
+  height: 525px;
+  width: 350px;
+  padding: 20px;
+  position: fixed;
+  top: 12%;
+  z-index: 2;
+  border-radius: var(--border-radius-value);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.modal.visible {
+  transform: scale(1);
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.add-new-book,
+.book-title {
+  color: var(--dark-gray);
+  font-family: "Source Sans 3";
+  text-align: center;
+}
+
+.add-new-book {
+  font-size: 30px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+.title-1,
+.title-2,
+.title-3,
+.title-4 {
+  color: var(--dark-gray);
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title-1,
+.title-2,
+.title-3 {
+  margin-bottom: -15px;
+}
+
+.book-input,
+.author-input,
+.pages-input {
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  height: 40px;
+  width: 90%;
+  padding-left: 17px;
+  padding-right: 17px;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius-value);
+  cursor: text;
+}
+
+.book-status {
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  height: 40px;
+  width: 35%;
+  padding-left: 17px;
+  padding-right: 17px;
+  margin-bottom: 30px;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius-value);
+  cursor: pointer;
+}
+
+.book-input:focus,
+.author-input:focus,
+.pages-input:focus,
+.book-status:focus {
+  color: var(--dark-gray);
+}
+
+.book-input::placeholder,
+.author-input::placeholder,
+.pages-input::placeholder {
+  color: var(--text-gray);
+}
+
+.book-input.error,
+.author-input.error,
+.pages-input.error {
+  border: 2px solid var(--red);
+}
+
+.book-input-error,
+.author-input-error,
+.pages-input-error {
+  color: var(--red);
+  font-size: 10.5px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  position: relative;
+  left: 230px;
+  opacity: 0;
+  transition: var(--ease-in-out);
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: repeat(1, 325px);
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.book-card {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 325px;
+  width: 300px;
+  cursor: pointer;
+  border-radius: var(--border-radius-value);
+  box-shadow: var(--box-shadow-value);
+  transition: var(--ease-in-out);
+}
+
+.book-card:hover {
+  transform: var(--scale-in-out);
+}
+
+.book-author,
+.book-pages {
+  color: var(--dark-gray);
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.book-author {
+  margin-top: 35px;
+  margin-bottom: 3px;
+}
+
+.footer {
+  color: black;
+  font-family: "Nunito Sans";
+  font-size: 11px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer a {
+  color: black;
+}
+
+.footer a:visited {
+  color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  .books {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .books {
+    grid-template-columns: repeat(1, 300px);
+  }
+}
