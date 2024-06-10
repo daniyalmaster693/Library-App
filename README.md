@@ -8,11 +8,16 @@ A library app made using HTML, CSS, and Javascript. The app uses a clean and sim
 <h2> Links </h2>
 
 <li> Link to task: https://www.theodinproject.com/lessons/node-path-javascript-library </li>
-<li> Link to live demo:  </li>
+<li> Link to live demo: https://blaze4884.github.io/Library-App/ </li>
 
 <h2> What have I learned </h2>
 
-<li> </li>
+<li> I've learned how to create Modals </li>
+<li> I've further improved my understanding of the "this" keyword </li>
+<li> I used basic array methods I learned in the past such as push() </li>
+<li> I've learned and used anonymous functions to pass paramters for functions </li>
+<li> I've used object oriented principles such as object constructors </li>
+<li> I've further improved my understanding of Grid </li>
 
 <h2> Keyboard Controls </h2>
 
